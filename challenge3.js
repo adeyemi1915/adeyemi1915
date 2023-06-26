@@ -1,4 +1,23 @@
-function calculateNSSF(basicsalary){
+//calculate the net salary
+function calculateNetSalary() {
+    const basicSalary = parseFloat(prompt('Enter basic salary:'));
+    const allowance = parseFloat (prompt('Enter allowance:'));
+    //input validation
+    if (isNaN(basicSalary) || IsNaN (allowance)){
+    alert('Enter a valid number')
+    return;
+
+    }
+    const nssf = calculateNSSF (basicSalary);
+    const nhif = calculateNHIF (basicSalary);
+    const paye = calculatePAYE (basicSalary);
+    const grossSalary = basicSalary+allowance;
+    const netSalary = grossSalary - nssf - nhif - paye;
+
+    alert ( 'Net salary: ${netSalary}');
+}  
+//calculating NHIF deduction using the NHIF rates
+function calculateNSSF(basicsalary) { 
     return basicsalary * 0.06;
   }
 //calculating NHIF deduction using the NHIF rates
